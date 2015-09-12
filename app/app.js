@@ -57,6 +57,7 @@ app.service('eventService', function() {
 });
 
 $(document).ready(function () {
+
   var trigger = $('.hamburger'),
       overlay = $('.overlay'),
      isClosed = false;
