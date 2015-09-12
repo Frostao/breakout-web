@@ -12,6 +12,15 @@ var cities = [
 ];
 
 app.controller('mapsController', ['$scope', 'Event', function($scope, Event) {
+    cities = [
+      {
+        city : 'Ann Arbor',
+        desc : 'MHacks 6',
+        lat : 42.2927223,
+        long : -83.7162022,
+        image: 'http://news.mlh.io/wp-content/uploads/2014/09/MHacks.png'
+      }
+    ];
 
     Event.getEvents().then(function(results) {
       var events = results;
