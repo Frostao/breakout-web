@@ -1,6 +1,6 @@
 (function () {
 'use strict';
-var app = angular.module('breakoutApp', ['ngRoute', 'breakout.list', 'breakout.maps', 'breakout.random', 'breakout.flyerPost']);
+var app = angular.module('breakoutApp', ['ngRoute', 'uiGmapgoogle-maps', 'breakout.list', 'breakout.maps', 'breakout.random', 'breakout.flyerPost']);
 
 app.config(function($routeProvider) {
     $routeProvider
@@ -40,6 +40,43 @@ app.service('eventService', function() {
         });
     }
 
+});
+
+$(document).ready(function () {
+  var trigger = $('.hamburger'),
+      overlay = $('.overlay'),
+     isClosed = false;
+
+  var trigger2 = $('.sidebarButton'),
+      overlay = $('.overlay'),
+     isClosed = false;
+
+    trigger.click(function () {
+      hamburger_cross();      
+    });
+
+    trigger2.click(function () {
+      hamburger_cross();      
+    });
+
+    function hamburger_cross() {
+
+      if (isClosed == true) {          
+        overlay.hide();
+        trigger.removeClass('is-open');
+        trigger.addClass('is-closed');
+        isClosed = false;
+      } else {   
+        overlay.show();
+        trigger.removeClass('is-closed');
+        trigger.addClass('is-open');
+        isClosed = true;
+      }
+  }
+  
+  $('[data-toggle="offcanvas"]').click(function () {
+        $('#wrapper').toggleClass('toggled');
+  });  
 });
 
 })();

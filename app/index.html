@@ -4,14 +4,15 @@
 	<title>Breakout!</title>
 
 </head>
-<body>
-
+<body id="home">
+	<h2 id="logo"></h2>
 
 	<script type="text/javascript" src="third_party/jquery/dist/jquery.js"></script>
 	<link rel="stylesheet" type="text/css" href="third_party/bootstrap/dist/css/bootstrap.css">
 	<script type="text/javascript" src="third_party/bootstrap/dist/js/bootstrap.min.js"></script>
 	<link href='https://fonts.googleapis.com/css?family=Great+Vibes' rel='stylesheet' type='text/css'>
-	
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDe8sRSaGxnJ2h4X1DZfA9W5ee2XGWfO5k&sensor=false"></script>
+
 	<script type="text/javascript" src="third_party/angular/angular.js"></script>
 	<script type="text/javascript" src="third_party/angular-route/angular-route.js"></script>
 	<script type="text/javascript" src="third_party/parse/parse.js"></script>
@@ -26,18 +27,52 @@
 	<script type="text/javascript" src="js/src/random/controller.js"></script>
 	<script type="text/javascript" src="js/src/list/controller.js"></script>
 	<script type="text/javascript" src="js/src/flyerPost/controller.js"></script>
+	    <div id="wrapper">
+        <div class="overlay"></div>
+    
+        <!-- Sidebar -->
+        <nav class="navbar navbar-inverse navbar-fixed-top" id="sidebar-wrapper" role="navigation">
+            <ul style="text-align:center;" class="nav sidebar-nav">
+                <img src="css/Drawing.png" height="60" width="100"></img>
+                
+                <li>
+                    <a class="sidebarButton" data-toggle="offcanvas" href="/#/flyerPost">Post a flyer!</a>
+                </li>
+                <li>
+                    <a class="sidebarButton" data-toggle="offcanvas" href="/#/random">Explore</a>
+                </li>
+                <li>
+                    <a class="sidebarButton" data-toggle="offcanvas" href="/#/maps">Around You</a>
+                </li>
+                <li>
+                    <a class="sidebarButton" data-toggle="offcanvas" href="/#/list">Everything</a>
+                </li>
+            </ul>
+        </nav>
+        <!-- /#sidebar-wrapper -->
 
-	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAykp4eZNYvPubbbY9uC_f0lV4rdEX1HT8&sensor=false"></script>
-
-
-	<h2 id="logo">Breakout!</h2>
-
-	<div id="main">
-		<div ng-view>
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <button type="button" class="hamburger is-closed" data-toggle="offcanvas">
+                <span class="hamb-top"></span>
+    			<span class="hamb-middle"></span>
+				<span class="hamb-bottom"></span>
+            </button>
+            <div class="container">
+                
+            </div>
+        </div>
+        <!-- /#page-content-wrapper -->
+        <div id="main">
+			<div ng-view>
+			</div>
+		            <!-- angular templating -->
+		            <!-- this is where content will be injected -->
 		</div>
-	            <!-- angular templating -->
-	            <!-- this is where content will be injected -->
-	</div>
+
+    </div>
+    <!-- /#wrapper -->
+
 
 </body>
 </html>
