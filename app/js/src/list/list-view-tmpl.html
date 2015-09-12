@@ -18,7 +18,7 @@
 			    	<tr ng-repeat="e in events">
 			    		<td>{{e.title}}</td>
 			    		<td>{{e.category}}</td>
-			    		<td>{{e.date}}</td>
+			    		<td>{{e.date | date:"short"}}</td>
 			    		<td>{{e.location}}</td>
 			    	</tr>
 			  	</table>
