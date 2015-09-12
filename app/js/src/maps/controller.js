@@ -1,4 +1,4 @@
-var app = angular.module('breakout.maps', []);
+var app = angular.module('breakout.maps', ['breakoutApp']);
 
 //Data
 var cities = [
@@ -11,7 +11,27 @@ var cities = [
     }
 ];
 
-app.controller('mapsController', ['$scope', function($scope) {
+app.controller('mapsController', ['$scope', 'Event', function($scope, Event) {
+
+    Event.getEvents().then(function(results) {
+      console.log(results);
+      var events = results;
+      console.log(events);
+      for(var i = 0; i < events.length; i++) {
+        console.log(events[i]);
+        var city = {desc:"foo", lat:1, long:2, image: 'f'};
+        city.desc = events[i].title;
+        city.lat = 40.4419;
+        city.long = 86.9125;
+        //city.lat = events[i].location.latitute;
+        //city.long = events[i].location.longitude;
+        city.image = events[i].flyer;
+        cities.push(city);
+      }
+    }, function(error) {
+      console.log(error);
+    });
+
 
     $scope.initMap = function() {
       $scope.map = new google.maps.Map(document.getElementById('map'), {
@@ -68,7 +88,6 @@ app.controller('mapsController', ['$scope', function($scope) {
         });
         
         $scope.markers.push(marker);
-        
     }  
     
     for (i = 0; i < cities.length; i++){
