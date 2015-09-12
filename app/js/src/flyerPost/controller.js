@@ -1,5 +1,5 @@
 var app = angular.module('breakout.flyerPost', []);
 
-app.controller('flyerPostController', ['$scope', function($scope) {
+app.controller('flyerPostController', ['$scope', 'eventService', function($scope, eventService) {
  
 }]);
