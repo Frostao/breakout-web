@@ -16,18 +16,23 @@ app.controller('mapsController', ['$scope', 'Event', function($scope, Event) {
     Event.getEvents().then(function(results) {
       console.log(results);
       var events = results;
-      console.log(events);
+      //console.log(events);
       for(var i = 0; i < events.length; i++) {
-        console.log(events[i]);
+        //console.log(events[i]);
         var city = {desc:"foo", lat:1, long:2, image: 'f'};
         city.desc = events[i].title;
-        city.lat = 40.4419;
-        city.long = 86.9125;
-        //city.lat = events[i].location.latitute;
-        //city.long = events[i].location.longitude;
-        city.image = events[i].flyer;
+        city.city = "foo";
+        city.lat = events[i].location.latitude;
+        city.long = events[i].location.longitude;
+        //city.image = events[i].flyer;
         cities.push(city);
       }
+
+      for (i = 0; i < cities.length; i++){
+      console.log(cities.length);
+        createMarker(cities[i]);
+      }
+
     }, function(error) {
       console.log(error);
     });
@@ -90,10 +95,6 @@ app.controller('mapsController', ['$scope', 'Event', function($scope, Event) {
         
         $scope.markers.push(marker);
     }  
-    
-    for (i = 0; i < cities.length; i++){
-        createMarker(cities[i]);
-    }
 
     $scope.openInfoWindow = function(e, selectedMarker){
         e.preventDefault();
