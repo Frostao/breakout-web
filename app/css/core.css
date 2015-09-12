@@ -7,6 +7,36 @@
 	text-align: center;
 }
 
+#logo_everything {
+  color: #E04C4C;
+  font-family: 'Pacifico', cursive;
+  font-size: 50px;
+  line-height: 160px;
+  font-weight: normal;
+  text-align: center;
+}
+
+#heading_table {
+  color: #E04C4C;
+  font-family: 'The Times New Roman';
+  font-size: 20px;
+  font-weight: normal;
+}
+
+#content_table {
+  color: #FFFFFF;
+  font-family: 'The Times New Roman';
+  font-size: 14px;
+  font-weight: normal;
+}
+
+label {
+  color: #E04C4C;
+  font-family: 'Pacifico', cursive;
+  font-size: 20px;
+  font-weight: normal;
+}
+
 .panel-transparent {
   background: none;
 }

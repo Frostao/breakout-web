@@ -11,18 +11,23 @@
 				<div class="panel-body form-area">
 					<form ng-submit="createEvent(newEvent)">
 						<div class="form-group">
-							<input class="form-control" type="text" ng-model="newEvent.title" placeholder="title">
+							<label for="title">Title</label>
+							<input id="title" class="form-control" type="text" ng-model="newEvent.title" placeholder="Title">
 						</div>
 						<div class="form-group">
-							<input class="form-control" type="text" ng-model="newEvent.category" placeholder="category">
+							<label for="category">Category</label>
+							<input id="category" class="form-control" type="text" ng-model="newEvent.category" placeholder="Category">
 						</div>
 						<div class="form-group">
-							<input class="form-control" type="date" ng-model="newEvent.date">
+							<label for="dateField">Event date</label>
+							<input id="dateField" class="form-control" type="date" ng-model="newEvent.date">
 						</div>
 						<div class="form-group">
-							<input class="form-control" type="time" ng-model="time">
+							<label for="timeField">Time</label>
+							<input id="timeField" class="form-control" type="time" ng-model="time">
 						</div>
-						<div style="text-align: center;" class="form-group">
+						<div class="form-group">
+							<label for="file">Upload file here: </label>
 							<input type="file" id="file" name="file"/>
 							<br />
 							<button type='button' class="btn btn-primary" ng-click="add()">Upload</button>
