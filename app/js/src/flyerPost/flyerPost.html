@@ -1,1 +1,8 @@
-flyerPost
+<div ng-controller="flyerPostController">
+<form ng-submit="createEvent(newEvent)">
+	<div class="form-group">
+		<input class="form-control" type="text" ng-model="newEvent.title" placeholder="title">
+	</div>
+	<button type="submit" class="btn btn-default">Submit</button>
+</form>
+</div>
