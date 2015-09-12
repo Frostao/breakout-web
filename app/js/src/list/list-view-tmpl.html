@@ -1,1 +1,7 @@
-list
+<div ng-controller="listController">
+	<ul>
+		<li ng-repeat = "e in getEvents()">
+			{{e.title}}
+		</li>
+	</ul>
+</div>
