@@ -26,6 +26,33 @@
 							<label for="timeField">Time</label>
 							<input id="timeField" class="form-control" type="time" ng-model="time">
 						</div>
+						<div class = "form-group">
+							<label for="locationField">Event Location</label>
+							<input class="form-control" id="locationField" type="text" ng-model="searchString">
+							<button type='button' class="btn btn-default" ng-click="search(searchString)" data-toggle="modal" data-target="#myModal">
+								<span class="glyphicon glyphicon-search">
+									Search
+								</span>
+							</button>
+							<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+								  <div class="modal-dialog" role="document">
+								    <div class="modal-content">
+								      <div class="modal-header">
+								        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+								        <h4 class="modal-title" id="myModalLabel">Select Location</h4>
+								      </div>
+								      <div class="modal-body">
+								        <select name="Location:" ng-model="selectedLocation">
+								        	<option ng-repeat="location in locations" value="{{location.geometry.location}}">{{location.formatted_address}}</option>
+								        </select>
+								      </div>
+								      <div class="modal-footer">
+								        <button type="button" class="btn btn-default" data-dismiss="modal">Select</button>
+								      </div>
+								    </div>
+								  </div>
+							</div>
+						</div>
 						<div class="form-group">
 							<label for="file">Upload file here: </label>
 							<input type="file" id="file" name="file"/>

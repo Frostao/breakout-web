@@ -42,6 +42,8 @@ app.service('eventService', function($q) {
         });
     }
 
+
+
     this.getEvents = function() {
         var queryObject = new Parse.Query(Event);
 
