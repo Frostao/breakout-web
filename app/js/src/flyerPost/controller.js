@@ -15,6 +15,7 @@ app.controller('flyerPostController', ['$scope', 'eventService', function($scope
 	}
 
 	$scope.createEvent = function(newEvent) {
+		$scope.newEvent.date.setTime($scope.time);
 		eventService.createEvent(newEvent);
 	}
 }]);
