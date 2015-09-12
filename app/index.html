@@ -5,28 +5,30 @@
 
 </head>
 <body>
-	<h1>It works!</h1>
-	{{"Angular working!"}}
-	<button class="btn btn-danger">Bootstrap working!/button>
-
-	<div id="main">
-		<div ng-view></div>
-	            <!-- angular templating -->
-	            <!-- this is where content will be injected -->
-	</div>
 
 	<script type="text/javascript" src="third_party/jquery/dist/jquery.js"></script>
 	<link rel="stylesheet" type="text/css" href="third_party/bootstrap/dist/css/bootstrap.css">
 	<script type="text/javascript" src="third_party/bootstrap/dist/js/bootstrap.min.js"></script>
+	<link href='https://fonts.googleapis.com/css?family=Great+Vibes' rel='stylesheet' type='text/css'>
 	
 	<script type="text/javascript" src="third_party/angular/angular.js"></script>
 	<script type="text/javascript" src="third_party/angular-route/angular-route.js"></script>
 
 	<script type="text/javascript" src="app.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/core.css">
 	<script type="text/javascript" src="js/src/maps/controller.js"></script>
 	<script type="text/javascript" src="js/src/random/controller.js"></script>
 	<script type="text/javascript" src="js/src/list/controller.js"></script>
 	<script type="text/javascript" src="js/src/flyerPost/controller.js"></script>
+
+	<h2 id="logo">Breakout!</h2>
+
+	<div id="main">
+		<div ng-view>
+		</div>
+	            <!-- angular templating -->
+	            <!-- this is where content will be injected -->
+	</div>
 
 </body>
 </html>

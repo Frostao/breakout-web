@@ -4,7 +4,7 @@ var app = angular.module('breakoutApp', ['ngRoute', 'breakout.list', 'breakout.m
 
 app.config(function($routeProvider) {
     $routeProvider
-         .when('/', {
+         .when('/flyerPost', {
             templateUrl : 'js/src/flyerPost/flyerPost.html',
             controllerUrl  : 'js/src/flyerPost/controller.js'
         })
@@ -20,8 +20,11 @@ app.config(function($routeProvider) {
             templateUrl : 'js/src/random/random-view-tmpl.html',
             controllerUrl : 'js/src/random/controller.js'
         })
+        .when('/', {
+            templateUrl : 'homepage.html',
+        })
         .otherwise({
-            redirectTo: '/'
+            redirectTo: 'homepage.html'
         });
 });
 
