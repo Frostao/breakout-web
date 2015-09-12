@@ -14,22 +14,18 @@ var cities = [
 app.controller('mapsController', ['$scope', 'Event', function($scope, Event) {
 
     Event.getEvents().then(function(results) {
-      console.log(results);
       var events = results;
-      //console.log(events);
       for(var i = 0; i < events.length; i++) {
-        //console.log(events[i]);
-        var city = {desc:"foo", lat:1, long:2, image: 'f'};
+         var city = {};
         city.desc = events[i].title;
         city.city = "foo";
         city.lat = events[i].location.latitude;
         city.long = events[i].location.longitude;
-        //city.image = events[i].flyer;
+        city.image = events[i].flyer;
         cities.push(city);
       }
 
       for (i = 0; i < cities.length; i++){
-      console.log(cities.length);
         createMarker(cities[i]);
       }
 
