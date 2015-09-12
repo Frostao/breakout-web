@@ -1,21 +1,35 @@
 <div ng-controller="flyerPostController">
-<form ng-submit="createEvent(newEvent)">
-	<div class="form-group">
-		<input class="form-control" type="text" ng-model="newEvent.title" placeholder="title">
+	<div class="row">
+		<div class="col-md-2">
+		</div>
+
+		<div class="col-md-8">
+			<div class="panel panel-primary">
+				<div class="panel-body">
+					<form ng-submit="createEvent(newEvent)">
+						<div class="form-group">
+							<input class="form-control" type="text" ng-model="newEvent.title" placeholder="title">
+						</div>
+						<div class="form-group">
+							<input class="form-control" type="text" ng-model="newEvent.category" placeholder="category">
+						</div>
+						<div class="form-group">
+							<input class="form-control" type="date" ng-model="newEvent.date">
+						</div>
+						<div class="form-group">
+							<input class="form-control" type="time" ng-model="time">
+						</div>
+						<div class="form-group">
+							<input type="file" id="file" name="file"/>
+							<button type='button' ng-click="add()">Upload</button>
+						</div>
+						<button type="submit" class="btn btn-default">Submit</button>
+					</form>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-md-2">
+		</div>
 	</div>
-	<div class="form-group">
-		<input class="form-control" type="text" ng-model="newEvent.category" placeholder="category">
-	</div>
-	<div class="form-group">
-		<input class="form-control" type="date" ng-model="newEvent.date">
-	</div>
-	<div class="form-group">
-		<input class="form-control" type="time" ng-model="time">
-	</div>
-	<div class="form-group">
-		<input type="file" id="file" name="file"/>
-		<button type='button' ng-click="add()">Upload</button>
-	</div>
-	<button type="submit" class="btn btn-default">Submit</button>
-</form>
 </div>
