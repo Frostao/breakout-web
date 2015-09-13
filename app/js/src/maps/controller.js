@@ -12,6 +12,8 @@ var cities = [
 ];
 
 app.controller('mapsController', ['$scope', 'Event', function($scope, Event) {
+    var maxDistance = 50 * 1000; //converting km to m
+
     cities = [
       {
         city : 'Ann Arbor',
@@ -21,6 +23,8 @@ app.controller('mapsController', ['$scope', 'Event', function($scope, Event) {
         image: 'http://news.mlh.io/wp-content/uploads/2014/09/MHacks.png'
       }
     ];
+
+    var userLocation = {};
 
     Event.getEvents().then(function(results) {
       var events = results;
@@ -59,8 +63,19 @@ app.controller('mapsController', ['$scope', 'Event', function($scope, Event) {
             lng: position.coords.longitude
           };
 
-          infoWindow.setPosition(pos);
-          infoWindow.setContent('You are here!');
+          var geoPoint = new Parse.GeoPoint(pos.lat, pos.lng);
+
+          var cityCircle = new google.maps.Circle({
+            strokeColor: '#FF0000',
+            strokeOpacity: 0.8,
+            strokeWeight: 2,
+            fillColor: '#FF0000',
+            fillOpacity: 0.35,
+            map:  $scope.map,
+            center: pos,
+            radius: maxDistance
+          });
+
           $scope.map.setCenter(pos);
         }, function() {
           handleLocationError(true, infoWindow, map.getCenter());

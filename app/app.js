@@ -42,8 +42,6 @@ app.service('eventService', function($q) {
         });
     }
 
-
-
     this.getEvents = function() {
         var queryObject = new Parse.Query(Event);
 
@@ -71,6 +69,23 @@ app.factory('Event', function($q) {
     }, {
       // Class methods
  
+      getNearbyEvents : function(userLocation, distance) {
+        var defer = $q.defer();
+ 
+        var query = new Parse.Query(this);
+        query.withinMiles('location', userLocation, distance);
+
+        query.find({
+          success : function(events) {
+            defer.resolve(events);
+          },
+          error : function(error) {
+            defer.reject(error);
+          }
+        });
+        return defer.promise;
+      },
+
       getEvents : function() {
         var defer = $q.defer();
  
