@@ -12,6 +12,18 @@ var cities = [
 ];
 
 app.controller('mapsController', ['$scope', 'Event', function($scope, Event) {
+    $scope.maxDistance = 50; //km
+    $scope.userLocation = {};
+    $scope.showCircle = true;
+
+    var circle;
+
+    $scope.drawCircle = function() {
+      var blah = ($scope.showCircle ? ($scope.maxDistance*1000) : 0);
+      circle.setRadius(blah);
+
+    }
+
     cities = [
       {
         city : 'Ann Arbor',
@@ -21,6 +33,8 @@ app.controller('mapsController', ['$scope', 'Event', function($scope, Event) {
         image: 'http://news.mlh.io/wp-content/uploads/2014/09/MHacks.png'
       }
     ];
+
+    var userLocation = {};
 
     Event.getEvents().then(function(results) {
       var events = results;
@@ -52,15 +66,28 @@ app.controller('mapsController', ['$scope', 'Event', function($scope, Event) {
       var infoWindow = new google.maps.InfoWindow({map: $scope.map});
 
       // Try HTML5 geolocation.
+
       if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function(position) {
           var pos = {
             lat: position.coords.latitude,
             lng: position.coords.longitude
           };
+          $scope.userLocation = pos;
 
-          infoWindow.setPosition(pos);
-          infoWindow.setContent('You are here!');
+          var geoPoint = new Parse.GeoPoint(pos.lat, pos.lng);
+
+          circle = new google.maps.Circle({
+            strokeColor: '#FF0000',
+            strokeOpacity: 0.8,
+            strokeWeight: 2,
+            fillColor: '#FF0000',
+            fillOpacity: 0.35,
+            map:  $scope.map,
+            center: pos,
+            radius: $scope.maxDistance*1000 //meters
+          });
+
           $scope.map.setCenter(pos);
         }, function() {
           handleLocationError(true, infoWindow, map.getCenter());
