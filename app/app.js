@@ -73,7 +73,7 @@ app.factory('Event', function($q) {
         var defer = $q.defer();
  
         var query = new Parse.Query(this);
-        query.withinMiles('location', userLocation, distance);
+        query.withinKilometers('location', userLocation, distance);
 
         query.find({
           success : function(events) {
