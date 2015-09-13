@@ -12,7 +12,17 @@ var cities = [
 ];
 
 app.controller('mapsController', ['$scope', 'Event', function($scope, Event) {
-    var maxDistance = 50 * 1000; //converting km to m
+    $scope.maxDistance = 50; //km
+    $scope.userLocation = {};
+    $scope.showCircle = true;
+
+    var circle;
+
+    $scope.drawCircle = function() {
+      var blah = ($scope.showCircle ? ($scope.maxDistance*1000) : 0);
+      circle.setRadius(blah);
+
+    }
 
     cities = [
       {
@@ -56,16 +66,18 @@ app.controller('mapsController', ['$scope', 'Event', function($scope, Event) {
       var infoWindow = new google.maps.InfoWindow({map: $scope.map});
 
       // Try HTML5 geolocation.
+
       if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function(position) {
           var pos = {
             lat: position.coords.latitude,
             lng: position.coords.longitude
           };
+          $scope.userLocation = pos;
 
           var geoPoint = new Parse.GeoPoint(pos.lat, pos.lng);
 
-          var cityCircle = new google.maps.Circle({
+          circle = new google.maps.Circle({
             strokeColor: '#FF0000',
             strokeOpacity: 0.8,
             strokeWeight: 2,
@@ -73,7 +85,7 @@ app.controller('mapsController', ['$scope', 'Event', function($scope, Event) {
             fillOpacity: 0.35,
             map:  $scope.map,
             center: pos,
-            radius: maxDistance
+            radius: $scope.maxDistance*1000 //meters
           });
 
           $scope.map.setCenter(pos);

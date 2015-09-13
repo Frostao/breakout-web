@@ -1,10 +1,20 @@
 <div ng-controller="mapsController">
 	<div class="container">
 		<div class="row">
+			<div class="col-sm-1"></div>
+			<div class="col-sm-10">
+				<label for="hehe">Radius(km)</label>
+				<input id="hehe" ng-change="drawCircle()" type="number" ng-minlength="0" ng-model="maxDistance">
+				<label for="fuck">Show Circle</label>
+				<input type="checkbox" ng-change="drawCircle()" ng-model="showCircle" id="fuck">
+			</div>
+			<div class="col-sm-1"></div>
+		</div>
+		<div class="row">
 			<div class="col-sm-1">
 			</div>
 			<div class="col-sm-10">
-		    	<div id="map"></div>
+				<div id="map"></div>
 		    	<div class="row">
 				    <div class="col-md-3" ng-repeat="marker in markers | orderBy : 'title'">
 				        <button ng-click="openInfoWindow($event, marker)" class="badge badge-info" style="display: inline;">{{marker.description}}</button>
