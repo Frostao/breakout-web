@@ -21,8 +21,8 @@ app.config(function($routeProvider) {
             controllerUrl : 'js/src/list/controller.js'
         })
         .when('/random', {
-            templateUrl : 'js/src/random/random-view-tmpl.html',
-            controllerUrl : 'js/src/random/controller.js'
+            templateUrl : 'js/src/aboutus/aboutus-view-tmpl.html',
+            controllerUrl : 'js/src/aboutus/controller.js'
         })
         .when('/', {
             templateUrl : 'homepage.html',
