@@ -135,6 +135,12 @@ app.factory('Event', function($q) {
     Event.prototype.__defineSetter__("location", function(aValue) {
       return this.set("location", aValue);
     });
+    Event.prototype.__defineGetter__("placename", function() {
+      return this.get("placename");
+    });
+    Event.prototype.__defineSetter__("placename", function(aValue) {
+      return this.set("placename", aValue);
+    });
  
     return Event;
   });
