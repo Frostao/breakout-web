@@ -15,16 +15,18 @@
 				  	<div class="panel-body">
 				  	<table id ="heading_table" class="table">
 				  		<tr>
+				  			<th></th>
 				  			<th>Title</th>
 				  			<th>Category</th>
 				  			<th>Date</th>
 				  			<th>Location</th>
 				  		</tr>
 				    	<tr id="content_table" ng-repeat="e in events">
+				    		<td><img src={{e.flyer.url()}} width="80" height="80"></td>
 				    		<td>{{e.title}}</td>
 				    		<td>{{e.category}}</td>
 				    		<td>{{e.date | date:"short"}}</td>
-				    		<td>{{e.location}}</td>
+				    		<td>{{e.location.latitude+","+e.location.longitude}}</td>
 				    	</tr>
 				  	</table>
 				  	</div>

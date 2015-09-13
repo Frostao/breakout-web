@@ -42,12 +42,19 @@
 								        <h4 class="modal-title" id="myModalLabel">Select Location</h4>
 								      </div>
 								      <div class="modal-body">
-								        <select name="Location:" ng-model="selectedLocation">
-								        	<option ng-repeat="location in locations" value="{{location.geometry.location}}">{{location.formatted_address}}</option>
-								        </select>
+								      	<div class="row" ng-repeat="location in locations">
+								      		<div class="col-md-8">
+								      			<h4>{{location.formatted_address}}</h4>
+								      		</div>
+								      		<div class="col-md-2"></div>
+								      		<div class="col-md-2">
+								      			<button ng-click="getSelectedLocation(location.geometry.location)" class="btn btn-sm btn-success" data-dismiss="modal">Select</button>
+								      		</div>
+								      		<hr />
+								      	</div>
 								      </div>
 								      <div class="modal-footer">
-								        <button type="button" class="btn btn-default" data-dismiss="modal">Select</button>
+								        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 								      </div>
 								    </div>
 								  </div>

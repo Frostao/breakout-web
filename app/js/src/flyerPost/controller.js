@@ -3,8 +3,12 @@ var app = angular.module('breakout.flyerPost', ['breakoutApp']);
 app.controller('flyerPostController', ['$scope', 'eventService', '$http', function($scope, eventService, $http) {
 	$scope.newEvent = {title: ""}
 	$scope.locations;
+	$scope.selectedLocation = null;
 
-
+	$scope.getSelectedLocation = function(location) {
+		$scope.selectedLocation = location;
+	}
+	
 	$scope.add = function(){
 	  var f = document.getElementById('file').files[0],
 	      r = new FileReader();
