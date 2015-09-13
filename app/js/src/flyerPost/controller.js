@@ -17,10 +17,11 @@ app.controller('flyerPostController', ['$scope', 'eventService', '$http', functi
 	}
 
 	$scope.createEvent = function(newEvent) {
-		newEvent.date.setTime($scope.time);
-		console.log($scope.selectedLocation);
-		console.log($scope.selectedLocation.lat);
-		console.log($scope.selectedLocation.lng);
+		console.log($scope.time);
+		newEvent.date.setHours($scope.time.getHours());
+		newEvent.date.setMinutes($scope.time.getMinutes());
+		//It's a fucking string pretending to be a JSON so parse it first
+		$scope.selectedLocation = JSON.parse($scope.selectedLocation);
 		newEvent.location = new Parse.GeoPoint($scope.selectedLocation.lat, $scope.selectedLocation.lng);
 		console.log(newEvent);
 		eventService.createEvent(newEvent);
