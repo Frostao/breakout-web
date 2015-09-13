@@ -22,6 +22,8 @@ app.controller('flyerPostController', ['$scope', 'eventService', '$http', functi
 	}
 
 	$scope.createEvent = function(newEvent) {
+		$scope.add();
+
 		console.log($scope.time);
 		newEvent.placename = $scope.searchString;
 		newEvent.date.setHours($scope.time.getHours());
@@ -33,6 +35,10 @@ app.controller('flyerPostController', ['$scope', 'eventService', '$http', functi
 		newEvent.location = new Parse.GeoPoint($scope.selectedLocation.lat, $scope.selectedLocation.lng);
 		console.log(newEvent);
 		eventService.createEvent(newEvent);
+		$scope.newEvent = {title: ""}
+		$scope.searchString = '';
+		$scope.time = null;
+
 	}
 
 	$scope.search = function(searchString) {
