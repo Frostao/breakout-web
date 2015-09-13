@@ -118,7 +118,7 @@ app.controller('mapsController', ['$scope', 'Event', function($scope, Event) {
             title: info.desc,
             description: info.desc
         });
-        marker.content = "<div class='infoWindowContent'><img height='200' width='200' src="+info.image+"><br />"+ info.desc + '<a href="/#/flyerPost" type="button" class="btn btn-primary btn-sm btn3d"><span class="glyphicon glyphicon-ok-circle"></span>Add to calendar</a></div>';
+        marker.content = "<div class='infoWindowContent'><img height='200' width='200' src="+info.image+"><br />"+'<a href="/#/flyerPost" type="button" class="btn btn-primary btn-sm btn3d"><span class="glyphicon glyphicon-ok-circle"></span>Add to calendar</a></div>';
         
         google.maps.event.addListener(marker, 'click', function(){
             infoWindow.setContent('<h2>' + marker.title + '</h2>' + marker.content);
