@@ -2,6 +2,14 @@
 'use strict';
 var app = angular.module('breakoutApp', ['ngRoute', 'uiGmapgoogle-maps', 'breakout.list', 'breakout.maps', 'breakout.random', 'breakout.flyerPost']);
 
+app.value('GoogleApp', {
+    apiKey: 'AIzaSyDe8sRSaGxnJ2h4X1DZfA9W5ee2XGWfO5k',
+    clientId: '374302211520-1oh28djcutk0svl5m3ucvkaspqmcmdd3.apps.googleusercontent.com',
+    scopes: [
+      'https://www.googleapis.com/auth/calendar'
+    ]  
+})
+
 app.config(function($routeProvider) {
 
     Parse.initialize("jJSrrrkKceel592bL1fRYbjTePkOUkP9wSnaMi3o", "pDCMBfg3YDx3I5fbZUwKNPAJJyYPKMeW9ct02Nfa");
