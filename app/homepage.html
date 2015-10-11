@@ -1,17 +1,98 @@
 <div>
+	<script type="text/javascript" src="login.js"></script>
 	<div class="row">
-		<div class="span12 offset2" style="text-align: center;">
-			<a><img src="css/full_logo.png" width="350px" height="200px"></img></a>
+		<div class="col-md-4">
+		</div>
+		<div class="col-md-4" style="text-align: center;">
+			<a><img src="css/Drawing.png" height="150" width="150"></img></a>
+		</div>
+		<div class="col-md-4">
+			<div id="loginbox" class="container">
+				<form class="form-horizontal" role="form" ng-submit="login(userlogin)">
+					<div class="form-group">
+						<label for="username">Username</label>
+						<input id="username" class="form-control" type="text" ng-model="userlogin.username" placeholder="Username">
+					</div>
+					<div class="form-group">
+						<label for="password">Password</label>
+						<input id="password" class="form-control" type="password" ng-model="userlogin.password" placeholder="Password">
+					</div>
+					<div style="text-align: right;" >
+						<button style=" background-color: #E04C4C; color:#ffffff;" type="submit" class="btn">Log in</button>
+					</div>
+				</form>
+			</div>
 		</div>
 	</div>
 
 	<div class="row">
-		<div class="col-md-4" style="padding-left: 200px;">
-			<a><img src="css/startup.png"></a>
+		<div class="col-md-4">
 		</div>
 		<div class="col-md-4">
+			<div class="panel-default panel-transparent text-center">
+				<div class="panel-heading">
+					<label style="text-align: center;font-size: 40px;">Not a Breakout! User?</label>
+				</div>
+				<div class="panel-body form-area">
+					<div class="row">
+						<button style=" background-color: #E04C4C; color:#ffffff;" class="btn btn-md center-block" ng-click="" data-toggle="modal" data-target="#myModalUser">Sign up!</button>
+					</div>
+				</div>
+			</div>
 		</div>
 		<div class="col-md-4">
 		</div>
 	</div>
+</div>
+
+
+
+<!-- Registration modal !-->
+<div class="modal fade" id="myModalUser" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Register</h4>
+      </div>
+      <div class="modal-body">
+      	<div class="row">
+      		<div class="col-md-6">
+			    <legend><h2>Sign Up!</h2></legend>
+			    <form ng-submit="signUp(user)">
+			      <label for="emailModal">Email</label>
+			      <div class="form-group">
+				      <input id="emailModal" class="form-control" type="email" ng-model="user.email" />
+			      </div>
+			      <label for="usernModal">Username</label>
+			      <div class="form-group">
+				      <input id="usernModal" class="form-control" type="text" ng-model="user.username" />
+			      </div>
+			      <label for="passModal">Password</label>
+			      <div class="form-group">
+				      <input id="passModal" class="form-control" type="password" ng-model="user.password" />
+			      </div>
+			      <label for="categoryModal">Category</label>
+			      <div class="form-group">
+						<select id="categoryModal" ng-model="user.category" class="form-control">
+						    <option value="personal">Personal</option>
+						    <option value="organization">Organization</option>
+						</select>
+					</div>
+				  <br />
+				  <div style="text-align: center;" >
+			      	<button style=" background-color: #E04C4C; color:#ffffff;" type="submit" class="btn">Register!</button>
+			      </div>
+			    </form>
+			</div>
+			<div class="col-md-6">
+				<img src="css/Drawing.png" height="100" width="100">
+			</div>
+	    </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
 </div>
