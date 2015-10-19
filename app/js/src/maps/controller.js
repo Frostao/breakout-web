@@ -59,9 +59,10 @@ app.controller('mapsController', ['$scope', 'Event', function($scope, Event) {
 
     $scope.initMap = function() {
       $scope.map = new google.maps.Map(document.getElementById('map'), {
-        center: {lat: 42.2927223, lng: -83.7162022},
         zoom: 8,
-        mapTypeId: google.maps.MapTypeId.TERRAIN
+        mapTypeId: google.maps.MapTypeId.TERRAIN,
+        scrollwheel: true, 
+        disableDefaultUI: false,
       });
       var infoWindow = new google.maps.InfoWindow({map: $scope.map});
 
