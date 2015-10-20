@@ -29,7 +29,7 @@ app.config(function($routeProvider) {
             controllerUrl : 'js/src/index/controller.js'
         })
         .otherwise({
-            redirectTo: 'profile.html'
+            redirectTo: '/profile'
         });
 });
 
