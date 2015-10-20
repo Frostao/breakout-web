@@ -1,6 +1,6 @@
 (function () {
 'use strict';
-var app = angular.module('breakoutApp', ['ngRoute', 'uiGmapgoogle-maps', 'breakout.authors', 'breakout.maps', 'breakout.list', 'breakout.index','breakout.profile']);
+var app = angular.module('breakoutApp', ['ngRoute', 'uiGmapgoogle-maps', 'breakout.authors', 'breakout.maps', 'breakout.list', 'breakout.index', 'breakout.profile']);
 
 app.config(function($routeProvider) {
 
@@ -22,7 +22,7 @@ app.config(function($routeProvider) {
         })
         .when('/authors', {
             templateUrl : 'js/src/authors/authors.html',
-            controllerUrl : 'js/src/aboutus/controller.js'
+            controllerUrl : 'js/src/authors/controller.js'
         })
         .when('/', {
             templateUrl : 'js/src/index/index.html',

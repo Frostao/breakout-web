@@ -1,5 +1,5 @@
 <!doctype html>
-<html>
+<html ng-app="breakoutApp">
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="">
@@ -37,7 +37,8 @@
 <script src='js/formHandler.js'></script>
 <!-- Main container -->
 <div class="page-container">
-    
+
+<header>   
 <!-- Navigation Bloc -->
 <div class="bloc bgc-black d-bloc" id="nav-bloc">
 	<div class="container bloc-sm">
@@ -58,13 +59,17 @@
 		</nav>
 	</div>
 </div>
+</header> 
 <!-- Navigation Bloc END -->
+
 <div id="main">
 	<div ng-view>
 	</div>
         <!-- angular templating -->
         <!-- this is where content will be injected -->
 </div>
+
+<footer>
 <!-- Footer - bloc-7 -->
 <div class="bloc bg-center bgc-black d-bloc" id="bloc-7">
 	<div class="container bloc-sm">
@@ -116,6 +121,7 @@
 	</div>
 </div>
 <!-- Footer - bloc-8 END -->
+</footer>
 </div>
 <!-- Main container END -->
 
